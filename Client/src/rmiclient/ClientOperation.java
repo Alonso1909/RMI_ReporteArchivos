@@ -22,7 +22,7 @@ public class ClientOperation {
     public static void main(String[] args)
             throws IOException, NotBoundException, DocumentException {
 
-        look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
+        look_up = (RMIInterface) Naming.lookup("//85.187.158.121:1099/MyServer");
         String ruta = JOptionPane.showInputDialog("Que ruta mostrar");
 
         // Crear objeto de GeneratePDF
@@ -30,7 +30,7 @@ public class ClientOperation {
 
         //String response = look_up.helloTo(txt);
         ArrayList<String> response = look_up.obtenerArchivos(ruta);
-        pdf.crearPDF(new File("Victor_MCA_ReporteArchivos.pdf"), response, ruta);
+        pdf.crearPDF(new File("Victor_MCA_ReporteArchivosServidor.pdf"), response, ruta);
         Iterator<String> Iterator = response.iterator();
         while(Iterator.hasNext()){
             String elemento = Iterator.next();
